@@ -1,0 +1,192 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "金融数据获取、管理与分析",
+    "section": "",
+    "text": "1 项目概览\n本电子书整理了本次金融数据作业的完整流程，涵盖数据获取、数据清洗、统计描述、可视化、CAPM 回归和宏观指标敏感性分析。报告使用 10 只 A 股代表性股票，覆盖银行、汽车、房地产、白酒和能源五个行业，并使用沪深 300 作为市场基准。\n在线电子书发布地址为：https://zhangcansim-sys.github.io/dshw-p01/",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>项目概览</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#股票样本",
+    "href": "index.html#股票样本",
+    "title": "金融数据获取、管理与分析",
+    "section": "1.1 股票样本",
+    "text": "1.1 股票样本\n\n\n\n\n\n\n\n\n\n代码\n名称\n行业\n选股理由\n\n\n\n\n601398\n工商银行\n银行\n全球资产规模最大的银行，稳定高股息，代表大盘蓝筹\n\n\n600036\n招商银行\n银行\n零售银行标杆，ROE 持续领先，成长性突出\n\n\n002594\n比亚迪\n汽车\n新能源汽车龙头，垂直整合，出海加速\n\n\n600104\n上汽集团\n汽车\n传统车企转型代表，与大众、通用合资稳定\n\n\n000002\n万科A\n房地产\n行业标杆，财务稳健，危机中凸显韧性\n\n\n600048\n保利发展\n房地产\n央企背景，逆周期拿地能力强\n\n\n600519\n贵州茅台\n白酒\n稀缺消费品，定价权强，护城河深\n\n\n000858\n五粮液\n白酒\n浓香型白酒龙头，品牌力仅次于茅台\n\n\n601088\n中国神华\n能源\n煤电一体，高分红，受益于能源安全主线\n\n\n600900\n长江电力\n能源\n全球最大水电公司，现金流稳定，类债券资产",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>项目概览</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#数据来源",
+    "href": "index.html#数据来源",
+    "title": "金融数据获取、管理与分析",
+    "section": "1.2 数据来源",
+    "text": "1.2 数据来源\n股票日行情和财务指标主要来自 baostock，行情数据采用后复权日频价格。市场指数包括沪深 300 和中证 500，宏观指标包括 CPI 同比和 M2 同比，分别用于市场基准、宏观环境描述和后续回归分析。",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>项目概览</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#文件说明",
+    "href": "index.html#文件说明",
+    "title": "金融数据获取、管理与分析",
+    "section": "1.3 文件说明",
+    "text": "1.3 文件说明\n本仓库保留了三个 Notebook：01_download.ipynb、02_clean.ipynb 和 03_analysis.ipynb。其中 03_analysis.ipynb 已导出为独立报告 report.html，本 Quarto book 则进一步将核心内容整理为带目录导航的在线电子书。",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>项目概览</span>"
+    ]
+  },
+  {
+    "objectID": "data-cleaning.html",
+    "href": "data-cleaning.html",
+    "title": "2  数据获取与清洗",
+    "section": "",
+    "text": "2.1 数据获取\n数据获取由 01_download.ipynb 完成，主要包括四类数据：\n这些数据分别保存到 data/stock/、data/index/、data/macro/ 和 data/finance/。原始数据以 CSV 保存，便于检查和复现。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>数据获取与清洗</span>"
+    ]
+  },
+  {
+    "objectID": "data-cleaning.html#数据获取",
+    "href": "data-cleaning.html#数据获取",
+    "title": "2  数据获取与清洗",
+    "section": "",
+    "text": "10 只股票的后复权日行情，时间范围从 2020 年初至 2026-05-22。\n沪深 300 和中证 500 指数日行情，用于市场基准和对比分析。\nCPI 同比和 M2 同比宏观指标，用于刻画通胀与流动性环境。\n2020-2024 年 ROE 和净利润率等财务指标，用于跨公司盈利能力比较。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>数据获取与清洗</span>"
+    ]
+  },
+  {
+    "objectID": "data-cleaning.html#数据清洗",
+    "href": "data-cleaning.html#数据清洗",
+    "title": "2  数据获取与清洗",
+    "section": "2.2 数据清洗",
+    "text": "2.2 数据清洗\n数据清洗由 02_clean.ipynb 完成，重点包括字段名统一、日期类型修复、数值列转换、缺失值检查、宽表和长表整理，以及跨数据源合并。清洗后的股票行情保存为 data/clean/stock_clean.csv 和 data/clean/stock_clean.parquet。\n本项目同时保留 CSV 和 Parquet 两类格式。CSV 便于人工检查和跨工具读取；Parquet 具备列式存储、压缩效率高、类型更稳定等优势，适合后续分析中快速读取指定列。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>数据获取与清洗</span>"
+    ]
+  },
+  {
+    "objectID": "data-cleaning.html#分析口径",
+    "href": "data-cleaning.html#分析口径",
+    "title": "2  数据获取与清洗",
+    "section": "2.3 分析口径",
+    "text": "2.3 分析口径\n后续统计和回归均使用日对数收益率：\n\\[r_t = \\ln(P_t/P_{t-1})\\]\n年化均值按 252 个交易日换算，年化波动率按平方根时间法换算。CAPM 分析中的无风险利率统一设为年化 2.0%，日频换算为 \\(0.02/252\\)。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>数据获取与清洗</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-visualization.html",
+    "href": "descriptive-visualization.html",
+    "title": "3  统计描述与可视化",
+    "section": "",
+    "text": "3.1 基本统计量\n下表汇总了 10 只股票日对数收益率的描述性统计。年化均值反映样本期内的平均收益水平，年化波动率衡量收益波动强度，偏度和峰度刻画收益分布形态，最大回撤则反映投资者可能遭遇的极端下行风险。\n从统计结果看，比亚迪和中国神华的年化收益较高，但比亚迪的波动率也显著偏高，体现成长型或高弹性资产的风险收益特征。房地产样本股的最大回撤明显更深，说明行业景气下行对股价形成了持续压力。",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>统计描述与可视化</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-visualization.html#基本统计量",
+    "href": "descriptive-visualization.html#基本统计量",
+    "title": "3  统计描述与可视化",
+    "section": "",
+    "text": "股票\n行业\n年化均值\n年化波动率\n偏度\n峰度\n最大回撤\n\n\n\n\n招商银行(600036)\n银行\n3.74%\n27.52%\n0.270\n3.226\n-50.94%\n\n\n工商银行(601398)\n银行\n8.94%\n16.23%\n0.451\n5.775\n-20.20%\n\n\n比亚迪(002594)\n汽车\n29.29%\n43.07%\n0.310\n2.111\n-52.54%\n\n\n上汽集团(600104)\n汽车\n-7.87%\n31.48%\n0.348\n5.370\n-53.99%\n\n\n万科A(000002)\n房地产\n-33.29%\n36.27%\n0.654\n3.250\n-87.81%\n\n\n保利发展(600048)\n房地产\n-12.61%\n36.11%\n0.557\n3.155\n-67.65%\n\n\n五粮液(000858)\n白酒\n-4.67%\n34.33%\n0.095\n3.368\n-71.57%\n\n\n贵州茅台(600519)\n白酒\n4.50%\n27.58%\n0.262\n3.637\n-47.48%\n\n\n长江电力(600900)\n能源\n9.33%\n17.73%\n0.370\n3.575\n-17.54%\n\n\n中国神华(601088)\n能源\n22.10%\n29.82%\n0.316\n3.289\n-21.47%",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>统计描述与可视化</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-visualization.html#归一化价格走势",
+    "href": "descriptive-visualization.html#归一化价格走势",
+    "title": "3  统计描述与可视化",
+    "section": "3.2 归一化价格走势",
+    "text": "3.2 归一化价格走势\n\n\n\n10只股票与沪深300归一化收盘价走势\n\n\n图中所有股票均以 2020 年首个交易日为 1 进行归一化，因而可以直接比较累计涨跌幅。沪深 300 作为黑色基准线，帮助判断个股收益来自市场整体上涨还是行业与公司特质。",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>统计描述与可视化</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-visualization.html#日收益率分布",
+    "href": "descriptive-visualization.html#日收益率分布",
+    "title": "3  统计描述与可视化",
+    "section": "3.3 日收益率分布",
+    "text": "3.3 日收益率分布\n\n\n\n10只股票日收益率分布\n\n\n收益率分布普遍存在尖峰厚尾特征，说明实际市场中的极端涨跌比正态分布假设更常见。对于风险管理而言，仅依赖均值和标准差可能低估尾部风险。",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>统计描述与可视化</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-visualization.html#收益率相关系数",
+    "href": "descriptive-visualization.html#收益率相关系数",
+    "title": "3  统计描述与可视化",
+    "section": "3.4 收益率相关系数",
+    "text": "3.4 收益率相关系数\n\n\n\n10只股票日收益率相关系数热力图\n\n\n相关系数热力图按行业排序，便于观察行业内部与跨行业相关性的差异。若同一行业块内相关性较高，说明行业共同冲击较强；若跨行业相关性也较高，则反映市场系统性因素在样本期内影响较大。",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>统计描述与可视化</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-visualization.html#宏观指标与沪深-300",
+    "href": "descriptive-visualization.html#宏观指标与沪深-300",
+    "title": "3  统计描述与可视化",
+    "section": "3.5 宏观指标与沪深 300",
+    "text": "3.5 宏观指标与沪深 300\n\n\n\nCPI同比与沪深300月度收益率关系\n\n\nCPI 同比与沪深 300 月度收益率的散点图用于观察通胀水平与股市收益之间的线性关系。二者关系可能受政策预期、企业成本、需求强弱和估值折现率共同影响，因此应结合经济背景解释。",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>统计描述与可视化</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-visualization.html#roe-跨公司比较",
+    "href": "descriptive-visualization.html#roe-跨公司比较",
+    "title": "3  统计描述与可视化",
+    "section": "3.6 ROE 跨公司比较",
+    "text": "3.6 ROE 跨公司比较\n\n\n\n10只股票近5年ROE走势\n\n\nROE 走势反映企业盈利能力和资本使用效率。白酒、银行、能源等行业通常更强调稳定盈利和现金流，而房地产行业 ROE 下行则与行业景气和资产周转压力有关。",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>统计描述与可视化</span>"
+    ]
+  },
+  {
+    "objectID": "capm-macro.html",
+    "href": "capm-macro.html",
+    "title": "4  CAPM 与宏观敏感性",
+    "section": "",
+    "text": "4.1 CAPM 模型\nCAPM 回归模型设定为：\n\\[r_{i,t}-r_f=\\alpha_i+\\beta_i(r_{m,t}-r_f)+\\varepsilon_{i,t}\\]\n其中 \\(r_{i,t}\\) 为个股日对数收益率，\\(r_{m,t}\\) 为沪深 300 日对数收益率，\\(r_f\\) 为日频无风险利率，按年化 2.0% 换算为 \\(0.02/252\\)。\nBeta 大于 1 的股票包括比亚迪、万科A 和五粮液，说明这些股票相对沪深 300 更敏感。比亚迪和万科A分别属于汽车和房地产，较符合周期性行业对经济景气和风险偏好更敏感的特征；五粮液 Beta 也较高，说明样本期内消费龙头估值波动同样受到市场风险偏好影响。\nAlpha 显著异于零的股票是万科A，且 Alpha 为负，表示在控制市场超额收益后仍存在 CAPM 难以解释的负向异常收益。R2 最高的是五粮液，说明沪深 300 对其日收益率解释力较强；R2 最低的是长江电力，说明其收益更多受公司现金流稳定性、能源资产属性或独立行业因素影响。",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CAPM 与宏观敏感性</span>"
+    ]
+  },
+  {
+    "objectID": "capm-macro.html#capm-模型",
+    "href": "capm-macro.html#capm-模型",
+    "title": "4  CAPM 与宏观敏感性",
+    "section": "",
+    "text": "股票\n行业\nAlpha\nAlpha p值\nBeta\n95% CI\nR2\n\n\n\n\n招商银行(600036)\n银行\n0.000051\n0.8846\n0.892\n[0.834, 0.950]\n0.371\n\n\n工商银行(601398)\n银行\n0.000271\n0.2824\n0.215\n[0.174, 0.257]\n0.062\n\n\n比亚迪(002594)\n汽车\n0.001057\n0.0659\n1.273\n[1.178, 1.368]\n0.309\n\n\n上汽集团(600104)\n汽车\n-0.000409\n0.3481\n0.844\n[0.772, 0.917]\n0.255\n\n\n万科A(000002)\n房地产\n-0.001421\n0.0042\n1.006\n[0.924, 1.088]\n0.272\n\n\n保利发展(600048)\n房地产\n-0.000597\n0.2496\n0.855\n[0.769, 0.941]\n0.198\n\n\n五粮液(000858)\n白酒\n-0.000291\n0.4617\n1.272\n[1.206, 1.337]\n0.485\n\n\n贵州茅台(600519)\n白酒\n0.000080\n0.8117\n0.962\n[0.907, 1.017]\n0.430\n\n\n长江电力(600900)\n能源\n0.000286\n0.3003\n0.224\n[0.178, 0.270]\n0.056\n\n\n中国神华(601088)\n能源\n0.000790\n0.0881\n0.401\n[0.325, 0.478]\n0.064\n\n\n\n\n\n\nCAPM Beta 系数及置信区间",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CAPM 与宏观敏感性</span>"
+    ]
+  },
+  {
+    "objectID": "capm-macro.html#cpi-对股票月度收益率的影响",
+    "href": "capm-macro.html#cpi-对股票月度收益率的影响",
+    "title": "4  CAPM 与宏观敏感性",
+    "section": "4.2 CPI 对股票月度收益率的影响",
+    "text": "4.2 CPI 对股票月度收益率的影响\n月度宏观回归模型为：\n\\[r_{i,t}^{月}=\\alpha_i+\\gamma_i CPI_t+\\varepsilon_{i,t}\\]\n其中 CPI 同比单位为百分比，\\(\\gamma_i\\) 表示 CPI 同比每上升 1 个百分点时，股票月度收益率的平均变化。\n\n\n\n股票\n行业\nGamma\nGamma p值\n95% CI\nR2\n\n\n\n\n招商银行(600036)\n银行\n-1.880\n0.3578\n[-5.936, 2.175]\n0.013\n\n\n工商银行(601398)\n银行\n-1.262\n0.1524\n[-3.001, 0.478]\n0.031\n\n\n比亚迪(002594)\n汽车\n-0.754\n0.8101\n[-6.992, 5.485]\n0.001\n\n\n上汽集团(600104)\n汽车\n-0.719\n0.7377\n[-4.987, 3.549]\n0.002\n\n\n万科A(000002)\n房地产\n3.598\n0.1753\n[-1.646, 8.842]\n0.028\n\n\n保利发展(600048)\n房地产\n2.307\n0.3630\n[-2.723, 7.337]\n0.013\n\n\n五粮液(000858)\n白酒\n-2.971\n0.2673\n[-8.276, 2.333]\n0.019\n\n\n贵州茅台(600519)\n白酒\n-1.718\n0.4265\n[-6.006, 2.570]\n0.010\n\n\n长江电力(600900)\n能源\n-0.391\n0.7470\n[-2.802, 2.020]\n0.002\n\n\n中国神华(601088)\n能源\n1.479\n0.4152\n[-2.123, 5.080]\n0.010\n\n\n\n\n\n\nCPI 同比对股票月度收益率的影响\n\n\n从显著性看，CPI 同比对 10 只股票月度收益率的影响在 5% 水平下均不显著，说明单一宏观变量难以稳定解释个股月度收益。行业层面看，房地产样本的 Gamma 更偏正，白酒和银行样本更偏负，但置信区间较宽，解释时应谨慎。",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CAPM 与宏观敏感性</span>"
+    ]
+  },
+  {
+    "objectID": "conclusion.html",
+    "href": "conclusion.html",
+    "title": "5  结论",
+    "section": "",
+    "text": "本项目完成了从数据下载、清洗、存储到统计分析和回归建模的完整流程。10 只股票覆盖五个行业，既能观察个股差异，也能比较行业之间的收益风险特征。\n描述性统计显示，不同行业在收益、波动和回撤方面差异明显。比亚迪和中国神华样本期收益较高，但风险来源不同；房地产样本最大回撤较深，体现行业周期下行压力；长江电力和工商银行等标的波动率较低，更接近防御性资产特征。\nCAPM 结果表明，Beta 大于 1 的股票更受市场波动影响，其中汽车和房地产的高 Beta 与周期性行业特征较为吻合。Alpha 显著性用于判断控制市场风险后是否仍存在异常收益，R2 则反映沪深 300 单一市场因子对个股收益的解释程度。\nCPI 月度回归属于宏观敏感性分析。结果显示 CPI 对个股月度收益的线性解释力整体较弱，说明股票收益同时受到行业景气、公司基本面、政策预期和风险偏好等多重因素影响。该结果提醒我们，宏观变量分析应结合更丰富的因子和更长样本进行稳健性检验。\n本 Quarto 电子书将 Notebook 结果整理为可在线阅读的报告形式，便于通过 GitHub Pages 展示完整作业成果。",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>结论</span>"
+    ]
+  }
+]
