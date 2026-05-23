@@ -11,10 +11,10 @@ project:
 book:
   title: "金融数据获取、管理与分析"
   subtitle: "P01 个人作业在线电子书"
-  author: "Zhangcansim"
+  author: "zhangcansim-sys"
   date: today
-  site-url: "https://Zhangcansim.github.io/dshw-p01/"
-  repo-url: "https://github.com/Zhangcansim/dshw-p01"
+  site-url: "https://zhangcansim-sys.github.io/dshw-p01/"
+  repo-url: "https://github.com/zhangcansim-sys/dshw-p01"
   repo-actions: [source]
   chapters:
     - index.qmd

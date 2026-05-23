@@ -35,15 +35,15 @@ P01：金融数据获取、管理与初步分析
 
 4.GitHub 仓库与在线电子书
 
-- GitHub 仓库：https://github.com/Zhangcansim/dshw-p01
-- Quarto 在线电子书：https://Zhangcansim.github.io/dshw-p01/
+- GitHub 仓库：https://github.com/zhangcansim-sys/dshw-p01
+- Quarto 在线电子书：https://zhangcansim-sys.github.io/dshw-p01/
 - 独立分析报告：`report.html`
 
 5.如何运行
 
 1. **克隆仓库并进入项目目录**
    ```bash
-   git clone https://github.com/Zhangcansim/dshw-p01.git
+   git clone https://github.com/zhangcansim-sys/dshw-p01.git
    cd dshw-p01
    ```
 2. **创建并激活 Python 环境（Python 3.11 以上）**
