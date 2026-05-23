@@ -69,10 +69,8 @@ P01：金融数据获取、管理与初步分析
    - 打开 `03_analysis.ipynb` 执行描述统计与回归分析。
    - 最终分析报告见 `report.html`。
 
-7. **（加分项）渲染 Quarto 在线电子书**
+7. **渲染 Quarto 在线电子书**
    ```bash
    quarto render
    ```
    本仓库已配置 GitHub Actions。推送到 GitHub 后，workflow 会自动渲染 Quarto book 并部署到 GitHub Pages。
-
-> 提示：若网络受限，建议使用 VPN 或代理，确保 baostock 和 akshare 能正常访问数据源。
