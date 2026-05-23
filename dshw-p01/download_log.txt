@@ -1,0 +1,27 @@
+[2026-05-23 10:47:29] 开始数据下载（完整项目版）
+[2026-05-23 10:47:29] Baostock 登录状态: 0 - success
+[2026-05-23 10:47:39] SUCCESS  stock_sh.601398  shape=(1545, 7)
+[2026-05-23 10:47:43] SUCCESS  stock_sh.600036  shape=(1545, 7)
+[2026-05-23 10:47:50] SUCCESS  stock_sz.002594  shape=(1545, 7)
+[2026-05-23 10:47:53] SUCCESS  stock_sh.600104  shape=(1545, 7)
+[2026-05-23 10:47:58] SUCCESS  stock_sz.000002  shape=(1545, 7)
+[2026-05-23 10:48:00] SUCCESS  stock_sh.600048  shape=(1545, 7)
+[2026-05-23 10:48:07] SUCCESS  stock_sh.600519  shape=(1545, 7)
+[2026-05-23 10:48:11] SUCCESS  stock_sz.000858  shape=(1545, 7)
+[2026-05-23 10:48:14] SUCCESS  stock_sh.601088  shape=(1545, 7)
+[2026-05-23 10:48:19] SUCCESS  stock_sh.600900  shape=(1545, 7)
+[2026-05-23 10:48:22] SUCCESS  index_sh.000300 (沪深300)  shape=(1545, 7)
+[2026-05-23 10:48:27] SUCCESS  index_sh.000905 (中证500)  shape=(1545, 7)
+[2026-05-23 10:48:30] SUCCESS  fin_sh.601398 processed
+[2026-05-23 10:48:32] SUCCESS  fin_sh.600036 processed
+[2026-05-23 10:48:35] SUCCESS  fin_sz.002594 processed
+[2026-05-23 10:48:37] SUCCESS  fin_sh.600104 processed
+[2026-05-23 10:48:39] SUCCESS  fin_sz.000002 processed
+[2026-05-23 10:48:42] SUCCESS  fin_sh.600048 processed
+[2026-05-23 10:48:44] SUCCESS  fin_sh.600519 processed
+[2026-05-23 10:48:47] SUCCESS  fin_sz.000858 processed
+[2026-05-23 10:48:50] SUCCESS  fin_sh.601088 processed
+[2026-05-23 10:48:52] SUCCESS  fin_sh.600900 processed
+[2026-05-23 10:48:52] SUMMARY  financial_long_format  shape=(100, 4)
+[2026-05-23 10:48:59] SUCCESS  macro_cpi  shape=(68, 7)
+[2026-05-23 10:49:00] SUCCESS  macro_m2  shape=(76, 3)
