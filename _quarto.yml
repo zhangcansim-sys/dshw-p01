@@ -1,0 +1,41 @@
+project:
+  type: book
+  output-dir: _site
+  render:
+    - index.qmd
+    - data-cleaning.qmd
+    - descriptive-visualization.qmd
+    - capm-macro.qmd
+    - conclusion.qmd
+
+book:
+  title: "金融数据获取、管理与分析"
+  subtitle: "P01 个人作业在线电子书"
+  author: "Zhangcansim"
+  date: today
+  site-url: "https://Zhangcansim.github.io/dshw-p01/"
+  repo-url: "https://github.com/Zhangcansim/dshw-p01"
+  repo-actions: [source]
+  chapters:
+    - index.qmd
+    - data-cleaning.qmd
+    - descriptive-visualization.qmd
+    - capm-macro.qmd
+    - conclusion.qmd
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    number-sections: true
+    code-fold: true
+    fig-align: center
+    page-layout: article
+
+execute:
+  enabled: false
+  freeze: auto
+
+lang: zh

@@ -1,0 +1,10 @@
+data/
+output/
+_site/
+.quarto/
+*.pyc
+.ipynb_checkpoints/
+download_log.txt
+
+/.quarto/
+**/*.quarto_ipynb
