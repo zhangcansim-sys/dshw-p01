@@ -35,7 +35,7 @@ format:
     page-layout: article
 
 execute:
-  enabled: false
+  enabled: true
   freeze: auto
 
 lang: zh
