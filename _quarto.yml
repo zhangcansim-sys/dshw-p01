@@ -13,6 +13,9 @@ book:
   subtitle: "P01 个人作业在线电子书"
   author: "zhangcansim-sys"
   date: today
+  cover-image: cover.png
+  cover-image-alt: "金融数据获取、管理与分析——A股样本的描述统计、可视化、CAPM 与宏观敏感性分析"
+  image: cover.png
   site-url: "https://zhangcansim-sys.github.io/dshw-p01/"
   repo-url: "https://github.com/zhangcansim-sys/dshw-p01"
   repo-actions: [source]
